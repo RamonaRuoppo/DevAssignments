@@ -16,10 +16,8 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
      
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Set the title for the view controller
         self.title = "Contact List"
         
-        // Create the right bar button item for adding contacts
         let addContactButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContactTapped))
         navigationItem.rightBarButtonItem = addContactButton
         
@@ -29,58 +27,43 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(table)
         
-        // Fetch Contacts
         fetchContacts()
     }
 
     @objc func addContactTapped() {
         let contactController = CNContactViewController(forNewContact: nil)
 
-        // Set the delegate
         contactController.delegate = self
 
-        // Allow editing
         contactController.allowsEditing = true
-
-        // Allow actions, including saving the contact
         contactController.allowsActions = true
         
-        // Set the displayed property keys
         contactController.displayedPropertyKeys = [CNContactPostalAddressesKey, CNContactPhoneNumbersKey, CNContactGivenNameKey]
 
-        // Create a save button
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveContact))
 
-        // Create a cancel button
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelContact))
 
-        // Set the navigation item's right and left bar button items
         contactController.navigationItem.rightBarButtonItem = saveButton
         contactController.navigationItem.leftBarButtonItem = cancelButton
 
-        // Create a navigation controller and set contactController as the root view controller
         let navController = UINavigationController(rootViewController: contactController)
         
         // Ensure the view layout
         navController.view.layoutIfNeeded()
 
-        // Present the navigation controller, which contains the contact view controller
         present(navController, animated: true)
     }
 
     @objc func cancelContact() {
-        // Handle the cancel action here
         dismiss(animated: true)
     }
-
-
 
     
     @objc func saveContact() {
         // Ensure that you have access to the contacts
         let store = CNContactStore()
         
-        // Create a new mutable contact
         let contact = CNMutableContact()
         
         // Set the properties of the contact
@@ -96,7 +79,7 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
             saveRequest.add(contact, toContainerWithIdentifier: nil)
             try store.execute(saveRequest)
             
-            // Contact saved successfully
+            // Contact saved successfully check
             print("Contact saved successfully.")
 
             dismiss(animated: true, completion: nil)
@@ -149,7 +132,7 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let contact = contacts[indexPath.row]
 
-        // Visualizza il nome del contatto nella cella
+        // view contact name in the cell
         cell.textLabel?.text = "\(contact.givenName) \(contact.familyName)"
 
         return cell
@@ -161,7 +144,6 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedContact = contacts[indexPath.row]
         
-        // Initialize the ContactDetailViewController
         let contactDetailVC = ContactDetailViewController()
         
         // Pass the selected contact to the detail view controller

@@ -21,7 +21,7 @@
 		C696B74C2AE7D25E00C8C56A /* ContactsUIKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696B74B2AE7D25E00C8C56A /* ContactsUIKitUITests.swift */; };
 		C696B74E2AE7D25E00C8C56A /* ContactsUIKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696B74D2AE7D25E00C8C56A /* ContactsUIKitUITestsLaunchTests.swift */; };
 		C696B7642AE8156300C8C56A /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696B7632AE8156300C8C56A /* ContactViewController.swift */; };
-		C6C62FB22AE90C39009059A4 /* SecurityUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C62FB12AE90C39009059A4 /* SecurityUIView.swift */; };
+		C6C62FB22AE90C39009059A4 /* SecureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C62FB12AE90C39009059A4 /* SecureView.swift */; };
 		C6C62FB42AE922D4009059A4 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C62FB32AE922D4009059A4 /* ContactDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,7 @@
 		C696B74B2AE7D25E00C8C56A /* ContactsUIKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUIKitUITests.swift; sourceTree = "<group>"; };
 		C696B74D2AE7D25E00C8C56A /* ContactsUIKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUIKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C696B7632AE8156300C8C56A /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
-		C6C62FB12AE90C39009059A4 /* SecurityUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityUIView.swift; sourceTree = "<group>"; };
+		C6C62FB12AE90C39009059A4 /* SecureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureView.swift; sourceTree = "<group>"; };
 		C6C62FB32AE922D4009059A4 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,13 +93,13 @@
 		C62F2E622AE9459000E5D4DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C696B72E2AE7D25C00C8C56A /* LoginController.swift */,
+				C6C62FB32AE922D4009059A4 /* ContactDetailViewController.swift */,
+				C696B7632AE8156300C8C56A /* ContactViewController.swift */,
 				C62F2E692AE96EB500E5D4DD /* ResultViewController.swift */,
-				C6C62FB12AE90C39009059A4 /* SecurityUIView.swift */,
+				C6C62FB12AE90C39009059A4 /* SecureView.swift */,
 				C62F2E652AE95CC300E5D4DD /* ScannerViewController.swift */,
 				C62F2E672AE967F500E5D4DD /* ScreenViewController.swift */,
-				C696B72E2AE7D25C00C8C56A /* LoginController.swift */,
-				C696B7632AE8156300C8C56A /* ContactViewController.swift */,
-				C6C62FB32AE922D4009059A4 /* ContactDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,7 +295,7 @@
 				C62F2E6A2AE96EB500E5D4DD /* ResultViewController.swift in Sources */,
 				C62F2E682AE967F500E5D4DD /* ScreenViewController.swift in Sources */,
 				C62F2E642AE952F400E5D4DD /* ScreenProtector.swift in Sources */,
-				C6C62FB22AE90C39009059A4 /* SecurityUIView.swift in Sources */,
+				C6C62FB22AE90C39009059A4 /* SecureView.swift in Sources */,
 				C62F2E662AE95CC300E5D4DD /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

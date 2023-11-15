@@ -14,7 +14,6 @@ class ScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
     }
@@ -22,7 +21,6 @@ class ScreenViewController: UIViewController {
     // This function is called when the "Open Scanner" button is tapped
     @IBAction func openScannerButton(_ sender: Any) {
         let scannerViewController = ScannerViewController()
-        // Push the scanner view controller onto the navigation stack 
         self.navigationController?.pushViewController(scannerViewController, animated: true)
     }
     
@@ -31,11 +29,9 @@ class ScreenViewController: UIViewController {
         showContactView()
     }
     
-    // This function navigates to the contact view controller
     func showContactView() {
         let contactStoryboard = UIStoryboard(name: "Main", bundle: nil) // Create an instance of the contactViewCcontroller
         let contacViewController = contactStoryboard.instantiateViewController(withIdentifier: "ContactViewController")
-        // Push the contact view controller onto the navigation stack
         self.navigationController?.pushViewController(contacViewController, animated: true)
     }
 

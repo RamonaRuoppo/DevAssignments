@@ -17,21 +17,18 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = UIColor.black
-        // Create a new AVCaptureSession
+        
         captureSession = AVCaptureSession()
-
-        // Get the default video capture device
+        
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
             failed()
             return
         }
-
+        
         do {
-            // Create a video input for the capture session
             let videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-            // Add the video input to the capture session
             if captureSession.canAddInput(videoInput) {
                 captureSession.addInput(videoInput)
             } else {
@@ -39,15 +36,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 return
             }
             
-            // Create a metadata output
             let metadataOutput = AVCaptureMetadataOutput()
-            // Add the metadata output to the capture session
             if captureSession.canAddOutput(metadataOutput) {
                 captureSession.addOutput(metadataOutput)
-
+                
                 // Set the delegate for metadata output and specify the queue for callbacks
                 metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                // Set the types of metadata objects to be detected (QR codes and various barcodes)
                 metadataOutput.metadataObjectTypes = [
                     .qr,
                     .code128,
@@ -71,14 +65,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             
             // Start the capture session
             DispatchQueue.global(qos: .userInitiated).async {
-                            self.captureSession.startRunning()
-                        }
+                self.captureSession.startRunning()
+            }
         } catch {
             failed()
         }
     }
     
-    // Function to handle errors
     func failed() {
         let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
@@ -102,7 +95,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        // Stop the capture session if it's running
         if captureSession?.isRunning == true {
             captureSession.stopRunning()
         }
@@ -116,14 +108,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
             // Store the scanned code
-                        scannedCode = stringValue
-
-                        // Present the ResultViewController
-                        presentResultViewController()
+            scannedCode = stringValue
+            
+            presentResultViewController()
         }
     }
     
-    // Present the ResultViewController
     func presentResultViewController() {
         if let scannedCode = scannedCode {
             let resultViewController = ResultViewController(result: scannedCode)
@@ -133,12 +123,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
-    // Hide the status bar
     override var prefersStatusBarHidden: Bool {
         return true
     }
 
-    // Specify supported interface orientations
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
