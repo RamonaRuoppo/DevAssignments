@@ -90,3 +90,4 @@ fastlane/test_output
 iOSInjectionProject/
 ContactsUIKit.xcodeproj/project.xcworkspace/xcuserdata/ramonaruoppo.xcuserdatad/UserInterfaceState.xcuserstate
 ContactsUIKit.xcodeproj/project.xcworkspace/xcuserdata/ramonaruoppo.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate
