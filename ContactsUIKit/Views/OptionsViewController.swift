@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ScreenViewController: UIViewController {
+class OptionsViewController: UIViewController {
 
     @IBOutlet weak var openScannerLabel: UIButton!
     @IBOutlet weak var contactsButtonLabel: UIButton!

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aFO-Gs-k3G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -114,19 +113,19 @@
             </objects>
             <point key="canvasLocation" x="1959.5419847328244" y="5.6338028169014089"/>
         </scene>
-        <!--Screen View Controller-->
+        <!--Options View Controller-->
         <scene sceneID="Xrk-00-3LP">
             <objects>
-                <viewController storyboardIdentifier="ScannerViewController" id="zea-Be-3QM" customClass="ScreenViewController" customModule="ContactsUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScannerViewController" id="zea-Be-3QM" customClass="OptionsViewController" customModule="ContactsUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="ScannerViewController" id="10o-PZ-6Bw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="1Hw-wC-8MI">
-                                <rect key="frame" x="127" y="386" width="160" height="91"/>
+                                <rect key="frame" x="127" y="386" width="139" height="91"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dn-9R-nQh">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="139" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Open Scanner" cornerStyle="capsule"/>
                                         <connections>
@@ -134,7 +133,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBc-p7-1Sv">
-                                        <rect key="frame" x="0.0" y="56.5" width="160" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="56.5" width="139" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Open Contacts" cornerStyle="capsule"/>
                                         <connections>
@@ -148,9 +147,8 @@
                         <color key="backgroundColor" red="0.62538313865661621" green="0.72093462944030762" blue="0.91873663663864136" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemIndigoColor"/>
                         <constraints>
-                            <constraint firstItem="1Hw-wC-8MI" firstAttribute="leading" secondItem="H2U-Jq-slh" secondAttribute="leading" constant="127" id="1uT-L8-8OJ"/>
-                            <constraint firstItem="1Hw-wC-8MI" firstAttribute="centerX" secondItem="10o-PZ-6Bw" secondAttribute="centerX" id="8hO-E2-aEb"/>
-                            <constraint firstItem="1Hw-wC-8MI" firstAttribute="top" secondItem="H2U-Jq-slh" secondAttribute="top" constant="338" id="mUQ-ij-Kwg"/>
+                            <constraint firstItem="1Hw-wC-8MI" firstAttribute="top" secondItem="H2U-Jq-slh" secondAttribute="top" constant="338" id="8l3-lz-ats"/>
+                            <constraint firstItem="1Hw-wC-8MI" firstAttribute="leading" secondItem="H2U-Jq-slh" secondAttribute="leading" constant="127" id="dvj-gF-XT0"/>
                         </constraints>
                     </view>
                     <connections>
@@ -187,7 +185,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

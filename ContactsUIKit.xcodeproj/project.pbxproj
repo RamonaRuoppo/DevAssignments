@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C62F2E642AE952F400E5D4DD /* ScreenProtector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F2E632AE952F400E5D4DD /* ScreenProtector.swift */; };
 		C62F2E662AE95CC300E5D4DD /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F2E652AE95CC300E5D4DD /* ScannerViewController.swift */; };
-		C62F2E682AE967F500E5D4DD /* ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F2E672AE967F500E5D4DD /* ScreenViewController.swift */; };
+		C62F2E682AE967F500E5D4DD /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F2E672AE967F500E5D4DD /* OptionsViewController.swift */; };
 		C62F2E6A2AE96EB500E5D4DD /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F2E692AE96EB500E5D4DD /* ResultViewController.swift */; };
 		C696B72B2AE7D25C00C8C56A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696B72A2AE7D25C00C8C56A /* AppDelegate.swift */; };
 		C696B72D2AE7D25C00C8C56A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696B72C2AE7D25C00C8C56A /* SceneDelegate.swift */; };
@@ -45,7 +45,7 @@
 /* Begin PBXFileReference section */
 		C62F2E632AE952F400E5D4DD /* ScreenProtector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenProtector.swift; sourceTree = "<group>"; };
 		C62F2E652AE95CC300E5D4DD /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		C62F2E672AE967F500E5D4DD /* ScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenViewController.swift; sourceTree = "<group>"; };
+		C62F2E672AE967F500E5D4DD /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		C62F2E692AE96EB500E5D4DD /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		C696B7272AE7D25C00C8C56A /* ContactsUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C696B72A2AE7D25C00C8C56A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,10 +96,10 @@
 				C696B72E2AE7D25C00C8C56A /* LoginController.swift */,
 				C6C62FB32AE922D4009059A4 /* ContactDetailViewController.swift */,
 				C696B7632AE8156300C8C56A /* ContactViewController.swift */,
+				C62F2E672AE967F500E5D4DD /* OptionsViewController.swift */,
 				C62F2E692AE96EB500E5D4DD /* ResultViewController.swift */,
 				C6C62FB12AE90C39009059A4 /* SecureView.swift */,
 				C62F2E652AE95CC300E5D4DD /* ScannerViewController.swift */,
-				C62F2E672AE967F500E5D4DD /* ScreenViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,7 +293,7 @@
 				C696B72D2AE7D25C00C8C56A /* SceneDelegate.swift in Sources */,
 				C6C62FB42AE922D4009059A4 /* ContactDetailViewController.swift in Sources */,
 				C62F2E6A2AE96EB500E5D4DD /* ResultViewController.swift in Sources */,
-				C62F2E682AE967F500E5D4DD /* ScreenViewController.swift in Sources */,
+				C62F2E682AE967F500E5D4DD /* OptionsViewController.swift in Sources */,
 				C62F2E642AE952F400E5D4DD /* ScreenProtector.swift in Sources */,
 				C6C62FB22AE90C39009059A4 /* SecureView.swift in Sources */,
 				C62F2E662AE95CC300E5D4DD /* ScannerViewController.swift in Sources */,
