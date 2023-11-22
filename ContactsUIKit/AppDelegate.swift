@@ -18,25 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Initialize the main window
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = LoginController()
         window?.makeKeyAndVisible()
         
-        // Initialize ScreenProtector and configure screenshot prevention
         screenProtector = ScreenProtector(window: window)
         screenProtector?.configurePreventionScreenshot()
-        
-        // Example: Enable blur screen
-        screenProtector?.enabledBlurScreen()
-        
-        // Example: Enable color screen
-        screenProtector?.enableColorScreen(hexColor: "#FF0000")
-        
-        // Example: Enable image screen
-        screenProtector?.enabledImageScreen(named: "background")
-        
-        // Configure an observer for screenshots
+                
         screenProtector?.screenshotObserver {
             // Handle the screenshot event
             print("Screenshot captured!")

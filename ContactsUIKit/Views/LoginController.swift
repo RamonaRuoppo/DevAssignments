@@ -17,13 +17,11 @@ class LoginController: UIViewController, CNContactPickerDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var faceIDLabel: UILabel!
     
-    // An authentication context available at the class level so we can use it when updating the user interface
     var context = LAContext()
     
-    var loginAttempts = 0 // Track login attempts
-    var isShowingAlert = false // Track whether the username/password alert is showing
+    var loginAttempts = 0
+    var isShowingAlert = false
 
-    // Available states of being logged in or not
     enum AuthenticationState {
         case loggedin, loggedout
     }
@@ -48,15 +46,13 @@ class LoginController: UIViewController, CNContactPickerDelegate {
         // The biometryType, which affects this app's UI when state changes, is only meaningful after running canEvaluatePolicy
         context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
         
-        // Set the initial app state. This impacts the initial state of the UI as well.
+        // Set the initial app state
         state = .loggedout
         loginButton?.setTitle("Login", for: .normal) // Set the initial button label
         
-        // Get notified once taking screenshots
         NotificationCenter.default.addObserver(self, selector: #selector(didTakeScreenshot(notification:)), name: UIApplication.userDidTakeScreenshotNotification, object: nil)
     }
     
-    // Handle the screenhots alert
     @objc func didTakeScreenshot(notification: Notification) {
         let alert = UIAlertController(title: "Screenshot Detected", message: "Screenshots are not allowed in this app.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
@@ -64,11 +60,9 @@ class LoginController: UIViewController, CNContactPickerDelegate {
         print("Screenshot taken")
     }
     
-    // Attempts to log in or logs out when the user taps the button.
     @IBAction func tapButton(_ sender: UIButton) {
         
         if state == .loggedin {
-            // Log out immediately.
             state = .loggedout
             descriptionLabel.text = "Tap the button below to authenticate with FaceID and login"
             loginButton.setTitle("Login", for: .normal) // Change the button label to "Login" when logged out
@@ -76,12 +70,12 @@ class LoginController: UIViewController, CNContactPickerDelegate {
         } else {
             context = LAContext()
 
-            // First check if we have the needed hardware support.
+            // check if we have the needed hardware support
             var error: NSError?
             guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
                 print(error?.localizedDescription ?? "Can't evaluate policy")
 
-                // Fall back to a asking for username and password.
+                // Fall back to a asking for username and password
                 if !isShowingAlert {
                     isShowingAlert = true
                     showUsernamePasswordAlert()
@@ -126,7 +120,6 @@ class LoginController: UIViewController, CNContactPickerDelegate {
         let loginAction = UIAlertAction(title: "Log In", style: .default) { (action) in
             if let username = alertController.textFields?[0].text,
                let password = alertController.textFields?[1].text {
-                // Perform your username and password validation here
                 
                 // If valid, update the UI to indicate a successful login
                 if self.validateCredentials(username: username, password: password) {
@@ -157,7 +150,6 @@ class LoginController: UIViewController, CNContactPickerDelegate {
         }
     }
     
-    // This alert will appear if the credentuals are incorrect
     func showAlertForInvalidCredentials() {
         let alertController = UIAlertController(
             title: "Invalid Credentials",
@@ -171,14 +163,12 @@ class LoginController: UIViewController, CNContactPickerDelegate {
         present(alertController, animated: true, completion: nil)
     }
     
-    // Navigate to the contact view
     func showContactView() {
         let contactStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let contacViewController = contactStoryboard.instantiateViewController(withIdentifier: "ContactViewController")
         self.navigationController?.pushViewController(contacViewController, animated: true)
     }
     
-    // Navigate to the scanner view
     func showScannerView() {
         let contactStoryboard = UIStoryboard(name: "Main", bundle: nil) 
         let contacViewController = contactStoryboard.instantiateViewController(withIdentifier: "ScannerViewController")

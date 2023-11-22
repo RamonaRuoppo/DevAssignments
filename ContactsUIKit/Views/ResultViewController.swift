@@ -7,10 +7,9 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    // Property to hold the scanned code
+
     var scannedCode: String
 
-    // Initialize the view controller with the scanned code
     init(result: String) {
         self.scannedCode = result
         super.init(nibName: nil, bundle: nil)
@@ -23,10 +22,8 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set the title for the navigation bar
         self.title = "Scanned Code"
 
-        // Set the background color to white
         view.backgroundColor = .white
 
         // Create a label to display the scanned code
@@ -48,14 +45,12 @@ class ResultViewController: UIViewController {
             codeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
 
-        // Set the right bar button item in the navigation bar
         let doneButton = UIButton(type: .system)
         doneButton.setTitle("Done", for: .normal)
         doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         let doneBarButtonItem = UIBarButtonItem(customView: doneButton)
         navigationItem.rightBarButtonItem = doneBarButtonItem
         
-        // Add a "Open URL" button to open the detected URL
         let openURLButton = UIButton(type: .system)
         openURLButton.setTitle("Open URL", for: .normal)
         openURLButton.addTarget(self, action: #selector(openURLButtonTapped), for: .touchUpInside)
@@ -74,7 +69,6 @@ class ResultViewController: UIViewController {
             // Open the URL if it's valid
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
-            // Display an alert if the scanned code is not a valid URL
             let alertController = UIAlertController(title: "Invalid URL", message: "The scanned code is not a valid URL.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
@@ -82,7 +76,6 @@ class ResultViewController: UIViewController {
     }
 
     @objc func doneButtonTapped() {
-        // Dismiss the view controller when the "Done" button is tapped
         dismiss(animated: true, completion: nil)
     }
 }

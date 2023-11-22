@@ -10,16 +10,14 @@ import UIKit
 
 class SecureView: UIView {
     
-    // placeholder will become visible when user try to capture screenshot
-    // or try to record the screen
+    // placeholder will become visible when user try to capture screenshot or try to record the screen
     private(set) var placeholderView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    // add content in this view
-    // it will be secure
+    // add content in this view, it will be secure
     private(set) var contentView: UIView = {
         let hiddenView = UIView()
         hiddenView.makeSecure()
