@@ -21,7 +21,6 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
         let addContactButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContactTapped))
         navigationItem.rightBarButtonItem = addContactButton
         
-        // Table configuration
         table.dataSource = self
         table.delegate = self
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -49,7 +48,6 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
 
         let navController = UINavigationController(rootViewController: contactController)
         
-        // Ensure the view layout
         navController.view.layoutIfNeeded()
 
         present(navController, animated: true)
@@ -79,7 +77,6 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
             saveRequest.add(contact, toContainerWithIdentifier: nil)
             try store.execute(saveRequest)
             
-            // Contact saved successfully check
             print("Contact saved successfully.")
 
             dismiss(animated: true, completion: nil)
@@ -102,7 +99,6 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
 
                     do {
                         try store.enumerateContacts(with: request) { (contact, _) in
-                            // Add the contact to the list
                             self.contacts.append(contact)
                         }
 

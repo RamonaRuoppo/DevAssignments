@@ -17,7 +17,6 @@ class SecureView: UIView {
         return view
     }()
     
-    // add content in this view, it will be secure
     private(set) var contentView: UIView = {
         let hiddenView = UIView()
         hiddenView.makeSecure()

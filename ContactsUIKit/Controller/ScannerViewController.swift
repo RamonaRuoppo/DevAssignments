@@ -56,11 +56,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 return
             }
             
-            // Create a preview layer and configure it
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             previewLayer.frame = view.layer.bounds
             previewLayer.videoGravity = .resizeAspectFill
-            // Add the preview layer to the view's layer
+
             view.layer.addSublayer(previewLayer)
             
             // Start the capture session
@@ -100,14 +99,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
 
-    // Callback for captured metadata objects
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if let metadataObject = metadataObjects.first, let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
            let stringValue = readableObject.stringValue {
             // Vibration feedback
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
-            // Store the scanned code
             scannedCode = stringValue
             
             presentResultViewController()

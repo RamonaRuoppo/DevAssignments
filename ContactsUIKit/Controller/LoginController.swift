@@ -26,15 +26,13 @@ class LoginController: UIViewController, CNContactPickerDelegate {
         case loggedin, loggedout
     }
     
-    // Current authentication state
     @MainActor
     var state = AuthenticationState.loggedout {
         
-        // Update the UI on a change.
         didSet {
             if  state == .loggedin {
                 loginAttempts = 0
-                showScannerView() // Switch to the scanner view when logged in
+                showScannerView()
             }
             
             faceIDLabel?.isHidden = (state == .loggedin) || (context.biometryType != .faceID)
@@ -43,12 +41,11 @@ class LoginController: UIViewController, CNContactPickerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // The biometryType, which affects this app's UI when state changes, is only meaningful after running canEvaluatePolicy
+
         context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
         
-        // Set the initial app state
         state = .loggedout
-        loginButton?.setTitle("Login", for: .normal) // Set the initial button label
+        loginButton?.setTitle("Login", for: .normal)
         
         NotificationCenter.default.addObserver(self, selector: #selector(didTakeScreenshot(notification:)), name: UIApplication.userDidTakeScreenshotNotification, object: nil)
     }
@@ -65,12 +62,11 @@ class LoginController: UIViewController, CNContactPickerDelegate {
         if state == .loggedin {
             state = .loggedout
             descriptionLabel.text = "Tap the button below to authenticate with FaceID and login"
-            loginButton.setTitle("Login", for: .normal) // Change the button label to "Login" when logged out
+            loginButton.setTitle("Login", for: .normal) 
 
         } else {
             context = LAContext()
 
-            // check if we have the needed hardware support
             var error: NSError?
             guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
                 print(error?.localizedDescription ?? "Can't evaluate policy")
@@ -88,13 +84,12 @@ class LoginController: UIViewController, CNContactPickerDelegate {
                 do {
                     try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Log in to your account")
                     state = .loggedin
-                    loginButton.setTitle("Logout", for: .normal) // Change the button label to "Logout" when logged in
+                    loginButton.setTitle("Logout", for: .normal)
                     descriptionLabel.text = ""
                 } catch let error {
                     print(error.localizedDescription)
-                    // Increment the login attempts
                     loginAttempts += 1
-                    print(loginAttempts) // Check
+                    print(loginAttempts)
                     
                     // Attempts counter
                     if loginAttempts >= 3 {

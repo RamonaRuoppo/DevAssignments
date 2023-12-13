@@ -14,25 +14,21 @@ class OptionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         self.title = "Options"
-        
-        
     }
     
-    // This function is called when the "Open Scanner" button is tapped
-    @IBAction func openScannerButton(_ sender: Any) {
+    @IBAction func openScannerTapped(_ sender: Any) {
         let scannerViewController = ScannerViewController()
         self.navigationController?.pushViewController(scannerViewController, animated: true)
     }
     
-    // This function is called when the "Contacts" button is tapped
-    @IBAction func contactsButton(_ sender: Any) {
+    @IBAction func contactsButtonTapped(_ sender: Any) {
         showContactView()
     }
     
     func showContactView() {
-        let contactStoryboard = UIStoryboard(name: "Main", bundle: nil) // Create an instance of the contactViewCcontroller
+        let contactStoryboard = UIStoryboard(name: "Main", bundle: nil) 
         let contacViewController = contactStoryboard.instantiateViewController(withIdentifier: "ContactViewController")
         self.navigationController?.pushViewController(contacViewController, animated: true)
     }

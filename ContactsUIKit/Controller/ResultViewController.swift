@@ -26,7 +26,6 @@ class ResultViewController: UIViewController {
 
         view.backgroundColor = .white
 
-        // Create a label to display the scanned code
         let codeLabel = UILabel()
         codeLabel.text = scannedCode
         codeLabel.textAlignment = .center
@@ -34,10 +33,8 @@ class ResultViewController: UIViewController {
         codeLabel.translatesAutoresizingMaskIntoConstraints = false
         codeLabel.textColor = .black
 
-        // Add the label to the view
         view.addSubview(codeLabel)
 
-        // Configure layout constraints for the label
         NSLayoutConstraint.activate([
             codeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             codeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -66,7 +63,6 @@ class ResultViewController: UIViewController {
     @objc func openURLButtonTapped() {
         // Check if the scanned code is a valid URL
         if let url = URL(string: scannedCode), UIApplication.shared.canOpenURL(url) {
-            // Open the URL if it's valid
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
             let alertController = UIAlertController(title: "Invalid URL", message: "The scanned code is not a valid URL.", preferredStyle: .alert)

@@ -90,7 +90,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C62F2E622AE9459000E5D4DD /* Views */ = {
+		C62F2E622AE9459000E5D4DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				C696B72E2AE7D25C00C8C56A /* LoginController.swift */,
@@ -101,7 +101,7 @@
 				C6C62FB12AE90C39009059A4 /* SecureView.swift */,
 				C62F2E652AE95CC300E5D4DD /* ScannerViewController.swift */,
 			);
-			path = Views;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C696B71E2AE7D25C00C8C56A = {
@@ -130,10 +130,9 @@
 				C696B72A2AE7D25C00C8C56A /* AppDelegate.swift */,
 				C696B72C2AE7D25C00C8C56A /* SceneDelegate.swift */,
 				C62F2E632AE952F400E5D4DD /* ScreenProtector.swift */,
-				C62F2E622AE9459000E5D4DD /* Views */,
-				C696B7302AE7D25C00C8C56A /* Main.storyboard */,
+				C62F2E622AE9459000E5D4DD /* Controller */,
+				C6E85DBB2B2A010F006D3BCA /* View */,
 				C696B7332AE7D25D00C8C56A /* Assets.xcassets */,
-				C696B7352AE7D25D00C8C56A /* LaunchScreen.storyboard */,
 				C696B7382AE7D25D00C8C56A /* Info.plist */,
 			);
 			path = ContactsUIKit;
@@ -154,6 +153,15 @@
 				C696B74D2AE7D25E00C8C56A /* ContactsUIKitUITestsLaunchTests.swift */,
 			);
 			path = ContactsUIKitUITests;
+			sourceTree = "<group>";
+		};
+		C6E85DBB2B2A010F006D3BCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C696B7302AE7D25C00C8C56A /* Main.storyboard */,
+				C696B7352AE7D25D00C8C56A /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
