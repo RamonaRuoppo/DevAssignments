@@ -1,5 +1,5 @@
 # DevAssignments
-Questo progetto è un'applicazione iOS completa che si concentra su funzionalità di sicurezza avanzate e interazioni con la rubrica del telefono. 
+Questo progetto è un'app iOS che si concentra su funzionalità di sicurezza avanzate e interazioni con la rubrica del telefono. 
 
 Ecco una panoramica delle principali caratteristiche e tecnologie implementate:
 
