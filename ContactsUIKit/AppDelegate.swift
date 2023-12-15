@@ -11,47 +11,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var secureView: SecureView?
-
-    var screenProtector: ScreenProtector?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        
-        screenProtector = ScreenProtector(window: window)
-        screenProtector?.configurePreventionScreenshot()
-                
-        screenProtector?.screenshotObserver {
-            // Handle the screenshot event
-            print("Screenshot captured!")
-            
-            // Temporarily disable the current screen by adding a black overlay
-            let overlayView = UIView(frame: UIScreen.main.bounds)
-            overlayView.backgroundColor = UIColor.black
-            overlayView.alpha = 0.7
-            self.window?.addSubview(overlayView)
-            
-            // Remove the overlay after a short delay (adjust the duration as needed)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                overlayView.removeFromSuperview()
-            }
-        }
-        
-        // Configure an observer for screen recording (available from iOS 11.0 onward)
-        if #available(iOS 11.0, *) {
-            screenProtector?.screenRecordObserver { isCaptured in
-                // Handle the screen recording event
-                if isCaptured {
-                    print("The screen is currently being recorded.")
-                } else {
-                    print("Screen recording has been stopped.")
-                }
-            }
-        }
-        
         return true
     }
 
