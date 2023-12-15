@@ -12,9 +12,9 @@ import AVFoundation
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-
+    
     var scannedCode: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,7 +59,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             previewLayer.frame = view.layer.bounds
             previewLayer.videoGravity = .resizeAspectFill
-
+            
             view.layer.addSublayer(previewLayer)
             
             // Start the capture session
@@ -79,7 +79,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         present(ac, animated: true)
         captureSession = nil
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -90,15 +90,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         }
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         if captureSession?.isRunning == true {
             captureSession.stopRunning()
         }
     }
-
+    
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if let metadataObject = metadataObjects.first, let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
            let stringValue = readableObject.stringValue {
@@ -123,7 +123,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override var prefersStatusBarHidden: Bool {
         return true
     }
-
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }

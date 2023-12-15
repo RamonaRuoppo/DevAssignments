@@ -13,7 +13,7 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
     
     @IBOutlet weak var table: UITableView!
     var contacts = [CNContact]()
-     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Contact List"
@@ -28,40 +28,38 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
         
         fetchContacts()
     }
-
+    
     @objc func addContactTapped() {
         let contactController = CNContactViewController(forNewContact: nil)
-
+        
         contactController.delegate = self
-
+        
         contactController.allowsEditing = true
         contactController.allowsActions = true
         
         contactController.displayedPropertyKeys = [CNContactPostalAddressesKey, CNContactPhoneNumbersKey, CNContactGivenNameKey]
-
+        
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveContact))
-
+        
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelContact))
-
+        
         contactController.navigationItem.rightBarButtonItem = saveButton
         contactController.navigationItem.leftBarButtonItem = cancelButton
-
+        
         let navController = UINavigationController(rootViewController: contactController)
         
         navController.view.layoutIfNeeded()
-
+        
         present(navController, animated: true)
     }
-
+    
     @objc func cancelContact() {
         dismiss(animated: true)
     }
-
+    
     
     @objc func saveContact() {
-        // Ensure that you have access to the contacts
         let store = CNContactStore()
-        
         let contact = CNMutableContact()
         
         // Set the properties of the contact
@@ -70,7 +68,7 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
         
         let phoneNumber = CNLabeledValue(label: CNLabelPhoneNumberMain, value: CNPhoneNumber(stringValue: "123-456-7890"))
         contact.phoneNumbers = [phoneNumber]
-                
+        
         do {
             // Create a save request and save the contact
             let saveRequest = CNSaveRequest()
@@ -78,30 +76,29 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
             try store.execute(saveRequest)
             
             print("Contact saved successfully.")
-
+            
             dismiss(animated: true, completion: nil)
         } catch {
             // Handle the error if the contact could not be saved
             print("Error saving contact: \(error)")
         }
     }
-
+    
     func fetchContacts() {
         let store = CNContactStore()
-
+        
         // Request access to contacts on a background queue
         DispatchQueue.global().async {
             store.requestAccess(for: .contacts) { (granted, error) in
                 if granted {
                     let keysToFetch = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
-
+                    
                     let request = CNContactFetchRequest(keysToFetch: keysToFetch as [CNKeyDescriptor])
-
+                    
                     do {
                         try store.enumerateContacts(with: request) { (contact, _) in
                             self.contacts.append(contact)
                         }
-
                         // Update the table on the main thread
                         DispatchQueue.main.async {
                             self.table.reloadData()
@@ -115,28 +112,28 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
             }
         }
     }
-
-
+    
+    
     
     // MARK: - UITableViewDataSource
     
     func tableView( tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let contact = contacts[indexPath.row]
-
+        
         // view contact name in the cell
         cell.textLabel?.text = "\(contact.givenName) \(contact.familyName)"
-
+        
         return cell
     }
-
-
-        // MARK: - UITableViewDelegate
-
+    
+    
+    // MARK: - UITableViewDelegate
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedContact = contacts[indexPath.row]
         
@@ -151,16 +148,16 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
         // Deselect the selected row after it's tapped
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
+    
     
     // MARK: - UITableViewDataSource
-     
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return contacts.count
-        }
-     
-     
-        // MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contacts.count
+    }
+    
+    
+    // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Handle the deletion of the contact here
@@ -168,7 +165,7 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
             deleteContact(contact, at: indexPath)
         }
     }
-
+    
     func deleteContact(_ contact: CNContact, at indexPath: IndexPath) {
         let alert = UIAlertController(
             title: "Delete Contact",
@@ -189,7 +186,6 @@ class ContactViewController: UIViewController,  UITableViewDataSource, UITableVi
                 self.contacts.remove(at: indexPath.row)
                 self.table.deleteRows(at: [indexPath], with: .fade)
             } catch {
-                // Handle the error (e.g., display an alert)
                 print("Error deleting contact: \(error.localizedDescription)")
             }
         }

@@ -130,8 +130,8 @@
 				C696B72A2AE7D25C00C8C56A /* AppDelegate.swift */,
 				C696B72C2AE7D25C00C8C56A /* SceneDelegate.swift */,
 				C62F2E632AE952F400E5D4DD /* ScreenProtector.swift */,
-				C62F2E622AE9459000E5D4DD /* Controller */,
 				C6E85DBB2B2A010F006D3BCA /* View */,
+				C62F2E622AE9459000E5D4DD /* Controller */,
 				C696B7332AE7D25D00C8C56A /* Assets.xcassets */,
 				C696B7382AE7D25D00C8C56A /* Info.plist */,
 			);
