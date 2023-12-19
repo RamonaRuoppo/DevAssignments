@@ -164,16 +164,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iAT-eq-nHn">
-                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="649"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="g08-pk-Wft">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="258"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jay-ag-9mf">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an option" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOe-Ha-Kca">
-                                                        <rect key="frame" x="27" y="51" width="360" height="26.5"/>
+                                                        <rect key="frame" x="27" y="37.5" width="360" height="26.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="360" id="dVO-5s-1Hx"/>
                                                         </constraints>
@@ -188,7 +188,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuB-Az-2yL">
-                                                <rect key="frame" x="0.0" y="129.5" width="414" height="128.5"/>
+                                                <rect key="frame" x="0.0" y="102" width="414" height="101"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To scan a QRcode or barcode select the first option or select the second one to show the contacts list instead." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oM7-fQ-dVz">
                                                         <rect key="frame" x="27" y="0.0" width="360" height="58"/>
@@ -209,34 +209,27 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="X2r-wo-Pur">
-                                        <rect key="frame" x="0.0" y="278" width="414" height="258"/>
+                                        <rect key="frame" x="0.0" y="223" width="414" height="203"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOP-9g-f6N">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="dbr-c5-0HJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBc-p7-1Sv">
-                                                        <rect key="frame" x="87" y="47" width="240" height="34.5"/>
+                                                        <rect key="frame" x="87" y="0.0" width="240" height="38"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="240" id="HWw-A9-W2b"/>
+                                                            <constraint firstAttribute="height" constant="38" id="Q5j-pP-fGy"/>
                                                         </constraints>
-                                                        <buttonConfiguration key="configuration" style="tinted" title="Open Contacts" cornerStyle="capsule"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Open Contacts" cornerStyle="capsule"/>
                                                         <connections>
                                                             <action selector="contactsButtonTapped:" destination="zea-Be-3QM" eventType="touchUpInside" id="gZy-c6-hum"/>
                                                         </connections>
                                                     </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="jBc-p7-1Sv" firstAttribute="centerY" secondItem="FOP-9g-f6N" secondAttribute="centerY" id="69F-m7-uhk"/>
-                                                    <constraint firstItem="jBc-p7-1Sv" firstAttribute="centerX" secondItem="FOP-9g-f6N" secondAttribute="centerX" id="8tS-CM-ui7"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GnH-N8-o6X">
-                                                <rect key="frame" x="0.0" y="129.5" width="414" height="128.5"/>
-                                                <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dn-9R-nQh">
-                                                        <rect key="frame" x="87" y="47" width="240" height="34.5"/>
+                                                        <rect key="frame" x="87" y="63" width="240" height="38"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="9aE-A5-GTg"/>
+                                                            <constraint firstAttribute="height" constant="38" id="fpY-nU-Cvc"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Open Scanner" cornerStyle="capsule"/>
@@ -245,15 +238,14 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="1dn-9R-nQh" firstAttribute="centerY" secondItem="GnH-N8-o6X" secondAttribute="centerY" id="4Sh-vP-3hA"/>
-                                                    <constraint firstItem="1dn-9R-nQh" firstAttribute="centerX" secondItem="GnH-N8-o6X" secondAttribute="centerX" id="dvI-Np-IXc"/>
-                                                </constraints>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GnH-N8-o6X">
+                                                <rect key="frame" x="0.0" y="102" width="414" height="101"/>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbH-QN-YDd" userLabel="Empty view">
-                                        <rect key="frame" x="0.0" y="556" width="414" height="258"/>
+                                        <rect key="frame" x="0.0" y="446" width="414" height="203"/>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -284,6 +276,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sxa-8G-Ubg">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EnC-yl-LYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aFO-Gs-k3G" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vaf-sJ-lZs">
@@ -295,7 +288,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dPX-mh-vgP"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EnC-yl-LYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="281.67938931297709" y="6.3380281690140849"/>
         </scene>

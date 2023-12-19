@@ -5,7 +5,6 @@
 //  Created by Ramona Ruoppo on 25/10/23.
 //
 
-import Foundation
 import UIKit
 
 extension UIWindow {
